@@ -3,6 +3,8 @@
 
 [Complete comparison tables](comparison.md) · [Wide numeric CSV](comparison-wide.csv)
 
+Draft contributions: [benchmark #11491](https://github.com/qdrant/qdrant/pull/11491), [SIMD TopK #11492](https://github.com/qdrant/qdrant/pull/11492), [blocked SQ8 #11493](https://github.com/qdrant/qdrant/pull/11493), [AMX #11494](https://github.com/qdrant/qdrant/pull/11494). All target upstream `dev`; AMX depends on the blocked scorer.
+
 All requested sweeps are complete: native and the combined patch, two repetitions,
 B1/C1–128 and C4/B1–128, visible and 90%-accepted filtered scans. The timestamp
 and accounting audit passed 96 sweep cases covering 42,717 successful requests.
