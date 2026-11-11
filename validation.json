@@ -1,0 +1,41 @@
+{
+  "validated_source": "f71938e93 (tests); 1078596e1 (final Clippy/report-output fix)",
+  "tests_passed": {
+    "quantization_library": 138,
+    "common_topk_targeted": 9,
+    "segment_quantized_filter": 68,
+    "segment_point_scorer": 2,
+    "real_scan_permission_denied": 3,
+    "qemu64_batch_filter": 10,
+    "arm_neon_threshold_oracle_cases": 39520
+  },
+  "additional_earlier_blocked_regressions": {
+    "quantization_library": 134,
+    "segment_quantized_storage": 57,
+    "point_scorer": 1,
+    "appendable_storage": 64
+  },
+  "checks_passed": [
+    "cargo +nightly fmt --all --check",
+    "git diff --check",
+    "cargo +1.98.0 clippy --workspace --all-features --profile perf -- -D warnings",
+    "cargo +1.98.0 clippy -p common -p quantization -p segment --all-targets --all-features --profile perf -- -D warnings"
+  ],
+  "extra_check_limitation": "Whole-workspace --all-targets --all-features Clippy fails on untouched cfg(test) BitmaskGaps::get in lib/blobstore/src/blobstore/gridstore/bitmask/gaps.rs:207. The required workspace/all-features check passes.",
+  "amx_permission_evidence": "Native float-parity test traced successful ARCH_REQ_XCOMP_PERM(18). Fresh-exec child-only seccomp denies that request with EPERM; all three RAM/mmap/cached scan-parity tests pass through fallback.",
+  "fallback_emulation": "Generic qemu64 runs ten batch tests; hardware AMX tests skip. Old QEMU Haswell model hits a pre-existing upstream C AVX instruction unsupported by that emulator; not reported as a passing fallback test.",
+  "limits": [
+    "Hardware CPU counters denied; cycles remain null.",
+    "ARM kernel correctness exercised with QEMU; no native ARM performance measurement.",
+    "Full workspace test suite was not executed."
+  ],
+  "full_size_measurement_audits": {
+    "micro_runs": 9,
+    "micro_case_summaries": 54,
+    "micro_timed_scans": 540,
+    "sweep_reports": 8,
+    "sweep_cases": 96,
+    "sweep_successful_requests": 42717,
+    "cross_build_reference_bits_equal": true
+  }
+}

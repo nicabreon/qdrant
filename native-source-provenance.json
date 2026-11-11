@@ -1,0 +1,36 @@
+{
+  "benchmark_source_commit": "62162f0b4835a9636fa133a3061c2157955c1ba9",
+  "baseline_benchmark_commit": "d6c63678dae57298c9a03ecadaa1e21d61e20bc6",
+  "only_changed_files": [
+    "docs/benchmarks/plain-scan.md",
+    "lib/segment/benches/sq8_full_scan.rs"
+  ],
+  "baseline_core_tree_matches": {
+    "lib/common/common": {
+      "baseline": "89eb71822e3aebe7d8dd9cbf65ee34fb60dcfcf6",
+      "built_source": "89eb71822e3aebe7d8dd9cbf65ee34fb60dcfcf6"
+    },
+    "lib/quantization": {
+      "baseline": "fd696184fc61eb966dd16cac0309b218b75beffb",
+      "built_source": "fd696184fc61eb966dd16cac0309b218b75beffb"
+    },
+    "lib/segment/src": {
+      "baseline": "e9ea0db7dc90d54180a823bd196027a1c568b3f6",
+      "built_source": "e9ea0db7dc90d54180a823bd196027a1c568b3f6"
+    }
+  },
+  "build_log_confirms_fresh_compilation": [
+    "common",
+    "quantization",
+    "segment"
+  ],
+  "build_flags": {
+    "toolchain": "1.98.0",
+    "profile": "perf",
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_PROFILE_PERF_DEBUG": "0",
+    "jobs": 8
+  },
+  "binary_sha256": "39d986fb25917ea0f7a11d64a467928feda62367382faf43521492539efe64b7",
+  "notes": "All three core packages were recompiled from the isolated baseline worktree. Build slot was exclusive and binary was copied before releasing it. Future shared-target source switches must explicitly invalidate local packages or use separate targets."
+}
